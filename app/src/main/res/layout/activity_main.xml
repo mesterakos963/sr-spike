@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    tools:context=".MainActivity">
+
+    <Spinner
+        android:id="@+id/language_chooser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/offline_mode"
+        app:layout_constraintBottom_toBottomOf="@id/mode_switch"
+        app:layout_constraintEnd_toStartOf="@id/mode_switch"
+        app:layout_constraintTop_toTopOf="@id/mode_switch" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/mode_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/text_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/text_container_background"
+        android:foregroundGravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/recognised_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:minLines="1"
+            android:padding="32dp"
+            android:textSize="60sp"
+            tools:text="@tools:sample/lorem" />
+
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/word_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_container">
+
+        <RadioButton
+            android:id="@+id/word_1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toStartOf="@id/word_2"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <RadioButton
+            android:id="@+id/word_2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toStartOf="@id/word_3"
+            app:layout_constraintStart_toEndOf="@id/word_1" />
+
+        <RadioButton
+            android:id="@+id/word_3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/word_2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/start_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/sr_button_bg_selector"
+        app:layout_constraintBottom_toTopOf="@id/audio_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/raw_inputs">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="40dp"
+            android:src="@drawable/ic_microphone"
+            app:tint="@color/purple_200" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/raw_inputs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/audio_button"
+        app:layout_constraintEnd_toStartOf="@id/start_button"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/button_1"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2" />
+
+        <Button
+            android:id="@+id/button_2"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2" />
+
+        <Button
+            android:id="@+id/button_3"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2" />
+
+        <Button
+            android:id="@+id/button_4"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2" />
+
+        <Button
+            android:id="@+id/button_5"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2" />
+
+        <Button
+            android:id="@+id/button_6"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/audio_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="@string/audio"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
